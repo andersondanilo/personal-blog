@@ -1,4 +1,7 @@
 import { devtoProfileUrl, githubProfileUrl } from "@/lib/config";
+import { DevToIcon } from "./devto-icon";
+import { GitHubIcon } from "./github-icon";
+import { RssIcon } from "./rss-icon";
 
 export function SiteFooter() {
   return (
@@ -9,17 +12,26 @@ export function SiteFooter() {
             href={githubProfileUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-foreground"
+            className="inline-flex items-center gap-1.5 hover:text-foreground"
           >
+            <GitHubIcon className="size-4" />
             GitHub
           </a>
           <a
             href={devtoProfileUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-foreground"
+            className="inline-flex items-center gap-1.5 hover:text-foreground"
           >
+            <DevToIcon className="size-4" />
             dev.to
+          </a>
+          <a
+            href="/feed.xml"
+            className="inline-flex items-center gap-1.5 hover:text-foreground"
+          >
+            <RssIcon className="size-4" />
+            RSS
           </a>
         </nav>
       </div>

@@ -1,6 +1,7 @@
 export const siteConfig = {
   githubUsername: "andersondanilo",
   devtoUsername: "andersondanilo",
+  siteUrl: "https://www.andersondanilo.com",
 };
 
 export const githubProfileUrl = `https://github.com/${siteConfig.githubUsername}`;

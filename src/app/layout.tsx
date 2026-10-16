@@ -26,6 +26,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: { default: `${name} · Blog`, template: `%s · ${name}` },
     description: profile.bio ?? `Blog posts by ${name}`,
     icons: { icon: "/favicon.jpeg" },
+    alternates: { types: { "application/rss+xml": "/feed.xml" } },
   };
 }
 
