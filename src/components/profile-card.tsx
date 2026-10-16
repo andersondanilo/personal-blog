@@ -1,7 +1,8 @@
 import Image from "next/image";
-import { githubProfileUrl } from "@/lib/config";
+import { githubProfileUrl, linkedinProfileUrl } from "@/lib/config";
 import { getGitHubProfile } from "@/lib/github";
 import { GitHubIcon } from "./github-icon";
+import { LinkedInIcon } from "./linkedin-icon";
 
 export async function ProfileCard() {
   const profile = await getGitHubProfile();
@@ -24,21 +25,26 @@ export async function ProfileCard() {
           </h1>
           {profile.bio && <p className="mt-1 text-muted">{profile.bio}</p>}
         </div>
-        <ul className="flex flex-wrap justify-center gap-x-4 gap-y-1 text-sm text-muted sm:justify-start">
-          {profile.company && <li>🏢 {profile.company}</li>}
-          {profile.location && <li>📍 {profile.location}</li>}
-          <li>{profile.public_repos} repositories</li>
-          <li>{profile.followers} followers</li>
-        </ul>
-        <div>
+        <div className="flex items-center justify-center gap-3 sm:justify-start">
           <a
             href={githubProfileUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-foreground px-4 py-2 text-sm font-medium text-background transition-opacity hover:opacity-85"
+            aria-label={`@${profile.login} on GitHub`}
+            title="GitHub"
+            className="inline-flex size-10 items-center justify-center rounded-full bg-foreground text-background transition-opacity hover:opacity-85"
           >
-            <GitHubIcon className="size-4" />
-            Follow @{profile.login} on GitHub
+            <GitHubIcon className="size-5" />
+          </a>
+          <a
+            href={linkedinProfileUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${name} on LinkedIn`}
+            title="LinkedIn"
+            className="inline-flex size-10 items-center justify-center rounded-full bg-foreground text-background transition-opacity hover:opacity-85"
+          >
+            <LinkedInIcon className="size-5" />
           </a>
         </div>
       </div>

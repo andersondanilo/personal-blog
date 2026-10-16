@@ -1,8 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { githubProfileUrl } from "@/lib/config";
 import { getGitHubProfile } from "@/lib/github";
-import { GitHubIcon } from "./github-icon";
 
 export async function SiteHeader() {
   const profile = await getGitHubProfile();
@@ -21,16 +19,6 @@ export async function SiteHeader() {
           />
           <span className="truncate">{name}</span>
         </Link>
-        <a
-          href={githubProfileUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex shrink-0 items-center gap-2 rounded-full border border-border px-3 py-1.5 text-sm transition-colors hover:bg-card"
-        >
-          <GitHubIcon className="size-4" />
-          <span className="hidden sm:inline">GitHub</span>
-          <span className="sr-only sm:hidden">GitHub profile</span>
-        </a>
       </div>
     </header>
   );

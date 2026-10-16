@@ -25,7 +25,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: { default: `${name} · Blog`, template: `%s · ${name}` },
     description: profile.bio ?? `Blog posts by ${name}`,
-    icons: { icon: profile.avatar_url },
+    icons: { icon: "/favicon.jpeg" },
   };
 }
 

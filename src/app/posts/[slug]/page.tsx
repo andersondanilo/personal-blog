@@ -19,7 +19,7 @@ export async function generateMetadata({
   return {
     title: article.title,
     description: article.description,
-    alternates: { canonical: article.url },
+    alternates: { canonical: `https://www.andersondanilo.com/posts/${slug}` },
     openGraph: {
       type: "article",
       title: article.title,
